@@ -1,0 +1,21 @@
+<div class="bucket">
+    <div *ngIf="isBucketSelected()">
+        <mat-card [class.mat-elevation-z8]="true">
+            <mat-card-header> Sceau </mat-card-header>
+            <mat-card-content>
+                Tolérance (%)
+                <mat-slider
+                    thumbLabel
+                    tickInterval="1"
+                    min="0"
+                    max="100"
+                    [(value)]="bucketSizeSlider"
+                    (input)="changeColorTolerance($event)"
+                    (input)="bucketSizeSlider = $event.value"
+                ></mat-slider>
+                {{ bucketSizeSlider }}
+                <br />
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

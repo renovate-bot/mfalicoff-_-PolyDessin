@@ -1,0 +1,109 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<div class="container">
+    <app-undo-redo></app-undo-redo>
+    <app-window-buttons></app-window-buttons>
+    <app-clipboard></app-clipboard>
+    <h3 id="toolHeader">Outils</h3>
+    <div class="toolButtons">
+        <div id="firstRowTools">
+            <button mat-raised-button id="pencil" (click)="selectTool('pencil')" matTooltip="Crayon: c" [class.selected]="isToolSelected('pencil')">
+                <img class="line-icon" src="assets/toolbar/pencil.svg" style="width: 24px; height: 24px" />
+            </button>
+            <button mat-raised-button id="eraser" (click)="selectTool('eraser')" matTooltip="Efface: e" [class.selected]="isToolSelected('eraser')">
+                <img class="line-icon" src="assets/toolbar/eraser.svg" style="width: 24px; height: 24px" />
+            </button>
+            <button mat-raised-button id="line-selector" (click)="selectTool('line')" matTooltip="Ligne: l" [class.selected]="isToolSelected('line')">
+                <img class="line-icon" src="assets/toolbar/line.svg" style="width: 24px; height: 24px" />
+            </button>
+            <button mat-raised-button id="grid-selector" (click)="switchGrid()" matTooltip="Gille: g">
+                <img class="grid-icon" src="assets/toolbar/grid-svgrepo-com.svg" style="width: 24px; height: 24px" />
+            </button>
+        </div>
+        <div id="secondRowTools">
+            <button
+                mat-raised-button
+                id="rectangle-selector"
+                (click)="selectTool('rectangle')"
+                matTooltip="Rectangle: 1"
+                [class.selected]="isToolSelected('rectangle')"
+            >
+                <img class="rectangle-icon" src="assets/toolbar/rectangle.svg" style="width: 24px; height: 24px" />
+            </button>
+            <button
+                mat-raised-button
+                id="ellipse-selector"
+                (click)="selectTool('ellipse')"
+                matTooltip="Ellipse: 2"
+                [class.selected]="isToolSelected('ellipse')"
+            >
+                <img class="ellipse-icon" src="assets/toolbar/ellipse.svg" />
+            </button>
+            <button
+                mat-raised-button
+                id="polygon-selector"
+                (click)="selectTool('polygon')"
+                matTooltip="Polygone: 3"
+                [class.selected]="isToolSelected('polygon')"
+            >
+                <img class="polygon-icon" src="assets/toolbar/polygone.svg" style="width: 24px; height: 24px" />
+            </button>
+            <button
+                mat-raised-button
+                id="selector-btn"
+                (click)="selectTool('selector')"
+                matTooltip="Sélection par Rectangle: r"
+                [class.selected]="isToolSelected('selector')"
+            >
+                <img class="rectangle-icon" src="assets/toolbar/dotted-square.svg" style="width: 24px; height: 24px" />
+            </button>
+        </div>
+        <div id="thirdRowTools">
+            <button
+                mat-raised-button
+                id="spray-selector"
+                (click)="selectTool('spray')"
+                matTooltip="Aérosol: a"
+                [class.selected]="isToolSelected('spray')"
+            >
+                <img class="spray-icon" src="assets/toolbar/spray-can.svg" style="width: 24px; height: 24px" />
+            </button>
+            <button
+                mat-raised-button
+                id="stamp-selector"
+                (click)="selectTool('stamp')"
+                matTooltip="Étampe: d"
+                [class.selected]="isToolSelected('stamp')"
+            >
+                <img class="spray-icon" src="assets/toolbar/—Pngtree—vector stamp icon_4152678.png" style="width: 28px; height: 28px" />
+            </button>
+            <button
+                mat-raised-button
+                id="bucket"
+                (click)="selectTool('bucket')"
+                matTooltip="Sceau de peinture: b"
+                [class.selected]="isToolSelected('bucket')"
+            >
+                <img class="line-icon" src="assets/toolbar/bucket.svg" style="width: 24px; height: 24px" />
+            </button>
+        </div>
+    </div>
+    <div id="proprietyBar">
+        <div *ngIf="!this.isGridSelected">
+            <app-pencil></app-pencil>
+            <app-eraser></app-eraser>
+            <app-line-component></app-line-component>
+            <app-content-selector></app-content-selector>
+            <app-rectangle></app-rectangle>
+            <app-ellipse-toolbar></app-ellipse-toolbar>
+            <app-polygon></app-polygon>
+            <app-spray></app-spray>
+            <app-stamp></app-stamp>
+            <app-bucket-toolbar></app-bucket-toolbar>
+        </div>
+        <app-grid [gridIsSelected]="isGridSelected"></app-grid>
+    </div>
+    <app-color></app-color>
+</div>

@@ -1,0 +1,47 @@
+<div *ngIf="this.getIsDrawing()" id="saveComponent">
+    <div id="metadataContainer">
+        <p>Sauvegarder Dessin</p>
+        <form [formGroup]="form" (ngSubmit)="save()">
+            <mat-form-field>
+                <mat-label>Nom</mat-label>
+                <input matInput formControlName="name" maxlength="25" required />
+            </mat-form-field>
+            <br />
+            <mat-form-field class="tag-list">
+                <mat-label>Étiquettes</mat-label>
+                <mat-chip-list #chipList aria-label="tag-selection" formControlName="tags">
+                    <mat-chip *ngFor="let tag of tags!.value" [selectable]="selectable" [removable]="removable" (removed)="remove(tag)">
+                        {{ tag }}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                    <input
+                        id="tagInput"
+                        placeholder="Ajouter Tag"
+                        maxlength="12"
+                        [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        (matChipInputTokenEnd)="add($event)"
+                        matTooltip="ENTER ou , pour insérer l'étiquette"
+                    />
+                </mat-chip-list>
+                <mat-hint> Pas de caractères spéciaux; Maximum 12 caractères; Pas d'Espaces; Pas de Doublons </mat-hint>
+            </mat-form-field>
+            <div id="buttons">
+                <button
+                    mat-stroked-button
+                    color="primary"
+                    id="saveBtnDB"
+                    type="submit"
+                    [disabled]="this.communicationSub.isDrawingSaving || !this.validateTitle(this.name.value)"
+                >
+                    Sauvegarder
+                </button>
+                <mat-spinner id="spinner" diameter="50" *ngIf="this.communicationSub.isDrawingSaving"></mat-spinner>
+                <button mat-stroked-button color="warn" id="cancelBtnDB" (click)="cancelSave()" [mat-dialog-close]>Annuler</button>
+            </div>
+        </form>
+    </div>
+    <div id="imageCanvas">
+        <img id="image" [src]="this.drawingService.canvas.toDataURL()" width="30%" height="30%" />
+    </div>
+</div>

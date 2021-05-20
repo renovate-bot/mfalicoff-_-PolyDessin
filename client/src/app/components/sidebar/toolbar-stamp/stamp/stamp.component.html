@@ -1,0 +1,84 @@
+<div class="stamp">
+    <div *ngIf="getIsStamp()">
+        <mat-card [class.mat-elevation-z8]="true">
+            <mat-card-header> Étampe </mat-card-header>
+            <mat-card-content>
+                Échelle
+                <mat-slider
+                    id="stampSize-slider"
+                    thumbLabel
+                    tickInterval="1"
+                    min="1"
+                    max="20"
+                    (input)="changeStampSize($event)"
+                    (input)="stampSizeSlider = $event.value"
+                ></mat-slider>
+                {{ stampSizeSlider }}
+            </mat-card-content>
+
+            <mat-card-content>
+                Angle de rotation
+                <mat-slider
+                    id="stampAngle-slider"
+                    thumbLabel
+                    tickInterval="1"
+                    min="1"
+                    max="90"
+                    (input)="changeRotationAngle($event)"
+                    (input)="stampService.sliderAngleValue = $event.value"
+                    [value]="stampService.sliderAngleValue"
+                ></mat-slider>
+                {{ stampService.sliderAngleValue }}
+            </mat-card-content>
+
+            <div class="buttonStamp">
+                <div id="stmapSelection">
+                    <button
+                        (click)="stampService.imgName = stampService.stamp1"
+                        (click)="stampService.selectStampImg('stamp1')"
+                        (click)="stampService.initialiseRotationAngle()"
+                        [class.selected]="selectedStamp('stamp1')"
+                    >
+                        <img src="assets/toolbar/stamp/stamp1.png" style="width: 32px; height: 32px" />
+                    </button>
+
+                    <button
+                        (click)="stampService.imgName = stampService.stamp2"
+                        (click)="stampService.selectStampImg('stamp2')"
+                        (click)="stampService.initialiseRotationAngle()"
+                        [class.selected]="selectedStamp('stamp2')"
+                    >
+                        <img src="assets/toolbar/stamp/stamp2.png" style="width: 32px; height: 32px" />
+                    </button>
+
+                    <button
+                        (click)="stampService.imgName = stampService.stamp3"
+                        (click)="stampService.selectStampImg('stamp3')"
+                        (click)="stampService.initialiseRotationAngle()"
+                        [class.selected]="selectedStamp('stamp3')"
+                    >
+                        <img src="assets/toolbar/stamp/stamp3.png" style="width: 32px; height: 32px" />
+                    </button>
+
+                    <button
+                        (click)="stampService.imgName = stampService.stamp4"
+                        (click)="stampService.selectStampImg('stamp4')"
+                        (click)="stampService.initialiseRotationAngle()"
+                        [class.selected]="selectedStamp('stamp4')"
+                    >
+                        <img src="assets/toolbar/stamp/stamp4.png" style="width: 32px; height: 32px" />
+                    </button>
+
+                    <button
+                        (click)="stampService.imgName = stampService.stamp5"
+                        (click)="stampService.selectStampImg('stamp5')"
+                        (click)="stampService.initialiseRotationAngle()"
+                        [class.selected]="selectedStamp('stamp5')"
+                    >
+                        <img src="assets/toolbar/stamp/stamp5.png" style="width: 32px; height: 32px" />
+                    </button>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

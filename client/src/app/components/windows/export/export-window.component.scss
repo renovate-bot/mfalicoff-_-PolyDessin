@@ -1,0 +1,107 @@
+.containerIf {
+    position: absolute;
+    z-index: 100;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.export-content {
+    background-color: #fefefe;
+    margin-top: 13vh;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 45%;
+    height: 70%;
+    min-width: 1000px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.canvas-container {
+    margin-left: 5px;
+    width: 100%;
+    position: relative;
+}
+.menu-container {
+    position: relative;
+    z-index: 200;
+    width: 370px;
+}
+#cancelButton {
+    top: 40px;
+    display: block;
+    position: relative;
+    z-index: 200;
+}
+#exportButton1 {
+    top: 0px;
+    display: block;
+    position: relative;
+    z-index: 200;
+}
+#exportButton2 {
+    top: 20px;
+    display: block;
+    position: relative;
+    z-index: 200;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    display: block;
+    position: relative;
+    z-index: 200;
+}
+
+#canvas {
+    position: relative;
+    z-index: 101;
+    border-style: solid;
+    border-color: #888;
+    overflow: auto;
+}
+#formFilter {
+    width: 370px;
+    display: block;
+    position: relative;
+    z-index: 200;
+}
+#formFormat {
+    width: 370px;
+    display: block;
+    position: relative;
+    z-index: 200;
+}
+
+#popup {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 110;
+    width: 200px;
+    height: 100px;
+    left: 425px;
+    cursor: help;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.filterForm {
+    flex: content;
+}
+
+#spinner {
+    display: inline;
+    margin-left: 160px;
+}
+
+::ng-deep .custom-style {
+    a {
+        color: deeppink;
+    }
+}

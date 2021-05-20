@@ -1,0 +1,79 @@
+.container {
+    height: auto;
+    min-height: 98vh;
+    border: 1px solid black;
+    padding: 0 5px 0 5px;
+    margin-right: 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+}
+section {
+    display: table;
+}
+
+.example-button-row {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+    width: 120px;
+    text-align: center;
+}
+
+.example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}
+
+#toolHeader {
+    text-decoration: underline;
+    margin-bottom: 0;
+    text-align: center;
+    color: lightslategray;
+}
+
+.toolButtons {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.toolButtons button.selected {
+    background-color: #cfd8dc;
+    color: white;
+}
+
+#firstRowTools button {
+    margin: 9px;
+}
+
+#secondRowTools button {
+    margin: 9px;
+}
+
+#thirdRowTools {
+    padding-left: 7%;
+}
+
+#thirdRowTools button {
+    margin: 9px;
+}
+
+#proprietyBar {
+    width: 343px;
+    height: 234px;
+}

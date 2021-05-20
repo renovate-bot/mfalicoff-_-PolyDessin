@@ -1,0 +1,54 @@
+<div class="containerIf" *ngIf="this.getIsExporting()">
+    <div class="export-content">
+        <div class="menu-container">
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nom de fichier</mat-label>
+                    <input id="input" matInput placeholder="Ex. fichier1" />
+                </mat-form-field>
+            </form>
+
+            <mat-form-field appearance="fill" id="formFormat">
+                <mat-label>Format de fichier (PNG par défaut)</mat-label>
+                <mat-select [formControl]="choicesControl" [(value)]="this.format" (selectionChange)="updateFormat($event)">
+                    <mat-option value="png">PNG</mat-option>
+                    <mat-option value="jpeg" [disabled]="this.filter === 'transparent'">JPG</mat-option>
+                </mat-select>
+                <mat-error *ngIf="choicesControl.hasError('required')">Veuillez choisir un format de fichier</mat-error>
+            </mat-form-field>
+
+            <div class="filterForm">
+                <mat-form-field appearance="fill" id="formFilter">
+                    <mat-label>Filtre (Aucun par défaut)</mat-label>
+                    <mat-select [formControl]="filterFormControl" [(value)]="filter" (selectionChange)="updateFilter($event)">
+                        <mat-option value="none">Aucun</mat-option>
+                        <mat-option value="greyLevels">50 shades of gris</mat-option>
+                        <mat-option value="transparent" [disabled]="this.format === 'jpeg'"
+                            >Fond transparent (seulement pour png)
+                            <mat-icon (mouseover)="this.infoIsVisible = true" (mouseout)="this.infoIsVisible = false">help_outline</mat-icon>
+                        </mat-option>
+                        <mat-option value="invColors">Couleurs inversées</mat-option>
+                        <mat-option value="polyLogo">Logo Polytechnique</mat-option>
+                        <mat-option value="blueLight">Réduction de la lumière bleu</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <button id="exportButton1" mat-stroked-button color="primary" (click)="exportDrawing()">Exporter localement (Télécharger)</button>
+                <button id="exportButton2" mat-stroked-button color="primary" (click)="exportToImgur()" [disabled]="isLoading">
+                    Exporter vers imgur
+                </button>
+                <mat-spinner id="spinner" *ngIf="isLoading" diameter="50"></mat-spinner>
+                <button id="cancelButton" mat-stroked-button color="warn" (click)="hideWindow()">Annuler</button>
+            </div>
+
+            <div id="popup" *ngIf="this.infoIsVisible">
+                <mat-icon>help_outline</mat-icon>
+                L'effet de filtre transparent s'applique sur un fichier png afin d'enlever le fond en blanc.
+            </div>
+        </div>
+        <div class="canvas-container" id="canvas-box">
+            <canvas id="canvas" #canvas [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
+        </div>
+    </div>
+</div>

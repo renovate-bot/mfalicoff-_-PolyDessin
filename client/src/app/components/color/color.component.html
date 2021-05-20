@@ -1,0 +1,77 @@
+<div class="prim-second-color">
+    <button
+        mat-raised-button
+        id="color-button1"
+        [ngStyle]="{ 'background-color': color || 'white' }"
+        (click)="this.updateContext(this.primaryColor?.style.backgroundColor, true)"
+        (click)="updateBorders()"
+    >
+        Primaire
+    </button>
+    <button mat-raised-button id="drop-down-icon">
+        <img
+            class="drop-down-icon"
+            src="assets/toolbar/drop-down.svg"
+            style="width: 24px; height: 24px"
+            (click)="setColorSelectorVisibility()"
+            (click)="setColorToModify(true)"
+        />
+    </button>
+
+    <button mat-raised-button id="switchCol">
+        <img class="reverse" src="assets/toolbar/reverse.svg" style="width: 24px; height: 24px" (click)="switchPrimAndSecond()" />
+    </button>
+
+    <button
+        mat-raised-button
+        id="color-button2"
+        [ngStyle]="{ 'background-color': colorSec || 'white' }"
+        (click)="this.updateContext(this.secondColor?.style.backgroundColor, false)"
+        (click)="updateBorders()"
+    >
+        Secondaire
+    </button>
+    <button mat-raised-button id="drop-down-icon">
+        <img
+            class="drop-down-icon"
+            src="assets/toolbar/drop-down.svg"
+            style="width: 24px; height: 24px"
+            (click)="setColorSelectorVisibility()"
+            (click)="setColorToModify(false)"
+        />
+    </button>
+</div>
+
+<div *ngIf="colorSelectorIsVisible">
+    <mat-card class="color-container" [class.mat-elevation-z8]="true">
+        <mat-card-content>
+            <div class="color-wrapper">
+                <app-color-slider id="sliderID" (color)="hue = $event" style="margin-left: 6px"></app-color-slider>
+                <app-color-palette id="paletteID" [hue]="hue" (color)="col = $event"></app-color-palette>
+                <app-color-opacity id="opacityID" [col]="col" style="margin-left: 6px"></app-color-opacity>
+            </div>
+            <button id="okButton" (click)="addRecentColor()" (click)="getActualColor()" (click)="setColorSelectorVisibility()">OK</button>
+            <button id="cancelButton" (click)="setColorSelectorVisibility()">Annuler</button>
+            <div class="hex-color">
+                <input id="red" #redHex value="" placeholder="ex: 00" />
+                <input id="green" #greenHex value="" placeholder="ex: 00" />
+                <input id="blue" #blueHex value="" placeholder="ex: 00" />
+                <button (click)="applyHexColor()">Obtenir HexColor</button>
+            </div>
+            <div id="invalid-message" *ngIf="invalidColorMessage">Couleur Invalide !</div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div class="recent-color">
+    <button id="color1" #color1 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+    <button id="color2" #color2 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+    <button id="color3" #color3 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+    <button id="color4" #color4 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+    <button id="color5" #color5 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+    <button id="color6" #color6 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+    <button id="color7" #color7 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+    <button id="color8" #color8 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+    <button id="color9" #color9 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+    <button id="color10" #color10 (mousedown)="selectPrimOrSecondColor($event)" (contextmenu)="preventCtxMenu($event)"></button>
+</div>

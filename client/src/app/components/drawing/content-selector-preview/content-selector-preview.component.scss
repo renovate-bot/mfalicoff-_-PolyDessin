@@ -1,0 +1,144 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+.containerIf {
+    width: 100%;
+    height: 100%;
+}
+.dragR {
+    width: 6px;
+    height: 6px;
+    border: solid 1px #000;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: e-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(144, 143, 143, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.dragL {
+    width: 6px;
+    height: 6px;
+    border: solid 1px #000;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: e-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(144, 143, 143, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.dragT {
+    width: 6px;
+    height: 6px;
+    border: solid 1px #000;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: n-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(144, 143, 143, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.dragB {
+    width: 6px;
+    height: 6px;
+    border: solid 1px #000;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: n-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(144, 143, 143, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.dragRT {
+    width: 6px;
+    height: 6px;
+    border: solid 1px #000;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: ne-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(144, 143, 143, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.dragRB {
+    width: 6px;
+    height: 6px;
+    border: solid 1px #000;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: se-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(144, 143, 143, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.dragLT {
+    width: 6px;
+    height: 6px;
+    border: solid 1px #000;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: nw-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(144, 143, 143, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.dragLB {
+    width: 6px;
+    height: 6px;
+    border: solid 1px #000;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: sw-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(144, 143, 143, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}

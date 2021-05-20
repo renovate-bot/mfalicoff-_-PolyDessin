@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 class="header-item">PolyDessin</h1>
+
+    <section>
+        <div class="example-button-row">
+            <button
+                id="continueDrawingButton"
+                mat-stroked-button
+                color="primary"
+                routerLink="/editor"
+                (click)="loadSavedImage()"
+                [disabled]="!ifImageStored()"
+            >
+                Continuer un dessin
+            </button>
+            <button id="newDrawingButton" mat-stroked-button color="primary" routerLink="/editor" (click)="clearImage()">
+                Créer un nouveau dessin
+            </button>
+            <app-gallery [isInMenu]="true"></app-gallery>
+        </div>
+    </section>
+
+    <div class="footer-item">
+        <h4 class="team-name">Équipe 205</h4>
+        <p>Félix Boucher, Samuel Simard, Maximiliano Falicoff, Alexandre Gagné</p>
+    </div>
+</div>

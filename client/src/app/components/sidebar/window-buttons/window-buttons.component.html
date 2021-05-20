@@ -1,0 +1,14 @@
+<div id="buttonsRow">
+    <button mat-raised-button id="save" (click)="openSaveMenu()" [disabled]="isWindowOpen()" matTooltip="Sauvegarder: Ctrl+s">
+        <img class="save-icon" src="assets/toolbar/windows/floppy-disk.svg" style="width: 24px; height: 24px" />
+    </button>
+    <button mat-raised-button id="newDrawing" (click)="createNewDrawing()" [disabled]="isWindowOpen()" matTooltip="Nouveau dessin">
+        <img class="new-icon" src="assets/toolbar/windows/new_drawing.svg" style="width: 24px; height: 24px" />
+    </button>
+    <button mat-raised-button id="export" (click)="openExportMenu()" [disabled]="isWindowOpen()" matTooltip="Exporter: Ctrl+e">
+        <img class="save-icon" src="assets/toolbar/windows/export.svg" style="width: 24px; height: 24px" />
+    </button>
+    <button mat-raised-button id="gallery" (click)="openGalleryMenu()" [disabled]="isWindowOpen()" matTooltip="Carrousel: Ctrl+g">
+        <img class="save-icon" src="assets/toolbar/windows/image-gallery.svg" style="width: 24px; height: 24px" />
+    </button>
+</div>

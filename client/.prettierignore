@@ -1,0 +1,11 @@
+# ignore ico files
+*.ico
+*.png
+*.svg
+
+#ignore images
+*.jpg
+
+#ignore .gitkeep files
+#ignoree .gitkeep files
+*.gitkeep

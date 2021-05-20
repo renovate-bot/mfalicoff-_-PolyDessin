@@ -1,0 +1,21 @@
+<div class="pencil">
+    <div *ngIf="isPencilSelected()">
+        <mat-card [class.mat-elevation-z8]="true">
+            <mat-card-header> Crayon </mat-card-header>
+            <mat-card-content>
+                Épaisseur
+                <mat-slider
+                    thumbLabel
+                    tickInterval="1"
+                    min="1"
+                    max="50"
+                    [(value)]="pencilSizeSlider"
+                    (input)="changeFontSize($event)"
+                    (input)="pencilSizeSlider = $event.value"
+                ></mat-slider>
+                {{ pencilSizeSlider }}
+                <br />
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div id="canvas-container" (mousemove)="this.onMouseMove($event)">
+    <div
+        class="selector-container"
+        [style.width.px]="this.drawingService.width"
+        [style.height.px]="this.drawingService.height"
+        *ngIf="this.getIsUsingSelectionTool()"
+    >
+        <app-content-selector-preview> </app-content-selector-preview>
+    </div>
+
+    <div
+        class="resize-preview"
+        id="preview"
+        [style.width.px]="this.drawingService.previewWidth"
+        [style.height.px]="this.drawingService.previewHeight"
+    ></div>
+    <canvas id="canvas" #baseCanvas [attr.width]="this.drawingService.width" [attr.height]="this.drawingService.height"></canvas>
+    <canvas id="previewLayer" #previewCanvas [attr.width]="this.drawingService.width" [attr.height]="this.drawingService.height"></canvas>
+    <canvas
+        id="canvasSelector"
+        #selectorCanvas
+        [attr.width]="this.drawingService.selectionWidth"
+        [attr.height]="this.drawingService.selectionHeight"
+    ></canvas>
+    <canvas id="gridCanvas" #gridCanvas [attr.width]="this.drawingService.width" [attr.height]="this.drawingService.height"></canvas>
+    <canvas id="stampCanvas" #stampCanvas [attr.width]="this.drawingService.width" [attr.height]="this.drawingService.height"></canvas>
+
+    <canvas id="previousCanvas" #previousCanvas [attr.width]="this.drawingService.width" [attr.height]="this.drawingService.height"></canvas>
+
+    <div
+        class="drag1"
+        id="cornerDrag"
+        [style.left.px]="this.drawingService.previewWidth"
+        [style.top.px]="this.drawingService.previewHeight"
+        (mousedown)="isResizingX()"
+        (mousedown)="isResizingY()"
+        (mouseover)="this.mouseOverResizePts = true"
+        (mouseout)="this.mouseOverResizePts = false"
+    ></div>
+    <div
+        class="drag2"
+        id="bottomDrag"
+        [style.left.px]="this.drawingService.previewWidth / 2"
+        [style.top.px]="this.drawingService.previewHeight + 1"
+        (mousedown)="isResizingY()"
+        (mouseover)="this.mouseOverResizePts = true"
+        (mouseout)="this.mouseOverResizePts = false"
+    ></div>
+
+    <div
+        class="drag3"
+        id="rightDrag"
+        [style.left.px]="this.drawingService.previewWidth + 1"
+        [style.top.px]="this.drawingService.previewHeight / 2"
+        (mousedown)="isResizingX()"
+        (mouseover)="this.mouseOverResizePts = true"
+        (mouseout)="this.mouseOverResizePts = false"
+    ></div>
+</div>

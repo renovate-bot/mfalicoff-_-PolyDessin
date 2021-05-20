@@ -1,0 +1,14 @@
+<div id="buttonsRow">
+    <button mat-raised-button id="copy" (click)="copy()" matTooltip="Copier: Ctrl+C" [disabled]="!isSelectorActive()">
+        <img id="copyImage" src="assets/toolbar/clipboard/copy.svg" style="width: 24px; height: 24px" />
+    </button>
+    <button mat-raised-button id="paste" (click)="paste()" matTooltip="Coller: Ctrl+V" [disabled]="!isClipBoardActive()">
+        <img id="pasteImage" src="assets/toolbar/clipboard/paste.svg" style="width: 24px; height: 24px" />
+    </button>
+    <button mat-raised-button id="cut" (click)="cut()" matTooltip="Couper: Ctrl+X" [disabled]="!isSelectorActive()">
+        <img id="cutImage" src="assets/toolbar/clipboard/scissors.svg" style="width: 24px; height: 24px" />
+    </button>
+    <button mat-raised-button id="delete" (click)="delete()" matTooltip="Supprimer: Delete" [disabled]="!isSelectorActive()">
+        <img id="deleteImage" src="assets/toolbar/clipboard/delete.svg" style="width: 24px; height: 24px" />
+    </button>
+</div>

@@ -1,0 +1,85 @@
+<div id="galleryOverlay">
+    <div>
+        <h2>Carrousel de Dessin</h2>
+    </div>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <div>
+        <mat-form-field class="example-chip-list">
+            <mat-label>Filtrage d'étiquettes</mat-label>
+            <mat-chip-list #chipList aria-label="Tag Selection">
+                <mat-chip *ngFor="let tag of tags" [removable]="removable" (removed)="remove(tag)">
+                    {{ tag.name }}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input
+                    id="tagInput"
+                    placeholder="Nouveau filtre"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    (matChipInputTokenEnd)="add($event)"
+                    matTooltip="ENTER ou , pour rentrer le tag"
+                />
+            </mat-chip-list>
+            <mat-hint> Pas de caractères spéciaux; Maximum 12 caractères; Pas d'Espaces; Pas de Doublons </mat-hint>
+        </mat-form-field>
+    </div>
+    <div id="container">
+        <div *ngIf="filteredImages.length === 0 && !this.isLoading && this.images.length !== 0">Pas d'image avec le filtre selectionne</div>
+        <div *ngIf="this.images.length === 0 && !this.isLoading">Pas d'image sur le serveur</div>
+
+        <button *ngIf="this.images.length !== 0" mat-button class="navigationButton" (click)="previousImage()" [disabled]="this.preventPrevious">
+            <img src="../../../../../assets/gallery/back.svg" />
+        </button>
+
+        <div *ngIf="filteredImages.length === 1" id="singleImageToDisplay">
+            <h3 class="title" mat-line>{{ imagesToShow[0].name }}</h3>
+            <p class="tags">{{ imagesToShow[0].tags }}</p>
+            <br *ngIf="imagesToShow[0].tags.length === 0" />
+            <br />
+            <img class="image" [src]="imagesToShow[0].url" width="30%" height="30%" (click)="loadImage($event, 1)" />
+            <button mat-raised-button (click)="deleteImage(imagesToShow[0].id!)" class="deleteButtonSingle">
+                <img class="buttonImage" src="../../../../../assets/gallery/delete.svg" />
+            </button>
+        </div>
+
+        <div *ngIf="filteredImages.length === 2" id="doubleImageToDisplay">
+            <div class="doubleImages">
+                <h3 class="title" mat-line>{{ imagesToShow[0].name }}</h3>
+                <p class="tags">{{ imagesToShow[0].tags }}</p>
+                <br *ngIf="imagesToShow[0].tags.length === 0" />
+                <br />
+                <img class="image" [src]="imagesToShow[0].url" width="30%" height="30%" (click)="loadImage($event, 1)" />
+                <button mat-raised-button (click)="deleteImage(imagesToShow[0].id!)" class="deleteButtonSingle">
+                    <img class="buttonImage" src="../../../../../assets/gallery/delete.svg" />
+                </button>
+            </div>
+            <div class="doubleImages">
+                <h3 class="title" mat-line>{{ imagesToShow[1].name }}</h3>
+                <p class="tags">{{ imagesToShow[1].tags }}</p>
+                <br *ngIf="imagesToShow[1].tags.length === 0" />
+                <br />
+                <img class="image" [src]="imagesToShow[1].url" width="30%" height="30%" (click)="loadImage($event, 1)" />
+                <button mat-raised-button (click)="deleteImage(imagesToShow[1].id!)" class="deleteButtonSingle">
+                    <img class="buttonImage" src="../../../../../assets/gallery/delete.svg" />
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="filteredImages.length > 2" id="allImagesContainer">
+            <div *ngFor="let image of imagesToShow; let i = index" id="Image">
+                <h3 class="title" mat-line>{{ image.name }}</h3>
+                <p class="tags">{{ image.tags }}</p>
+                <br *ngIf="image.tags.length === 0" />
+                <br />
+                <img class="image" [src]="image.url" width="30%" height="30%" (click)="loadImage($event, i)" />
+                <button mat-raised-button (click)="deleteImage(image.id)" class="deleteButton" [disabled]="i !== 1">
+                    <img class="buttonImage" src="../../../../../assets/gallery/delete.svg" />
+                </button>
+            </div>
+        </div>
+
+        <button *ngIf="this.images.length !== 0" mat-button class="navigationButton" (click)="nextImage()" [disabled]="this.preventNext">
+            <img src="../../../../../assets/gallery/next.svg" />
+        </button>
+    </div>
+</div>

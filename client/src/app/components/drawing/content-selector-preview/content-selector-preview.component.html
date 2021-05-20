@@ -1,0 +1,65 @@
+<div class="container" id="container" (mousemove)="resizeSelection($event)">
+    <div class="containerIf" *ngIf="!this.contentSelectorService.mouseDown && this.getIsActive()">
+        <div
+            class="dragR"
+            id="dragR"
+            [style.left.px]="this.getPointsX().x2"
+            [style.top.px]="this.getPointsY().y2 - (this.getPointsY().y2 - this.getPointsY().y1) / 2 - 3"
+            (mousedown)="this.initializeResizingEndX()"
+        ></div>
+        <div
+            class="dragB"
+            id="dragB"
+            [style.left.px]="this.getPointsX().x2 - (this.getPointsX().x2 - this.getPointsX().x1) / 2 - 3"
+            [style.top.px]="this.getPointsY().y2"
+            (mousedown)="this.initializeResizingEndY()"
+        ></div>
+        <div
+            class="dragT"
+            id="dragT"
+            [style.left.px]="this.getPointsX().x2 - (this.getPointsX().x2 - this.getPointsX().x1) / 2 - 3"
+            [style.top.px]="this.getPointsY().y1 - 8"
+            (mousedown)="this.initializeResizingStartY()"
+        ></div>
+        <div
+            class="dragL"
+            id="dragL"
+            [style.left.px]="this.getPointsX().x1 - 8"
+            [style.top.px]="this.getPointsY().y2 - (this.getPointsY().y2 - this.getPointsY().y1) / 2 - 3"
+            (mousedown)="this.initializeResizingStartX()"
+        ></div>
+
+        <div
+            class="dragRT"
+            id="dragRT"
+            [style.left.px]="this.getPointsX().x2"
+            [style.top.px]="this.getPointsY().y1 - 6"
+            (mousedown)="this.initializeResizingEndX()"
+            (mousedown)="this.initializeResizingStartY()"
+        ></div>
+        <div
+            class="dragRB"
+            id="dragRB"
+            [style.left.px]="this.getPointsX().x2 - 1"
+            [style.top.px]="this.getPointsY().y2 - 1"
+            (mousedown)="this.initializeResizingEndY()"
+            (mousedown)="this.initializeResizingEndX()"
+        ></div>
+        <div
+            class="dragLT"
+            id="dragLT"
+            [style.left.px]="this.getPointsX().x1 - 6"
+            [style.top.px]="this.getPointsY().y1 - 6"
+            (mousedown)="this.initializeResizingStartY()"
+            (mousedown)="this.initializeResizingStartX()"
+        ></div>
+        <div
+            class="dragLB"
+            id="dragLB"
+            [style.left.px]="this.getPointsX().x1 - 6"
+            [style.top.px]="this.getPointsY().y2"
+            (mousedown)="this.initializeResizingStartX()"
+            (mousedown)="this.initializeResizingEndY()"
+        ></div>
+    </div>
+</div>

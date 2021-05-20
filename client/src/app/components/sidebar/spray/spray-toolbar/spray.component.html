@@ -1,0 +1,45 @@
+<div class="spray">
+    <div *ngIf="getIsSpray()">
+        <mat-card [class.mat-elevation-z8]="true">
+            <mat-card-header> Aérosol </mat-card-header>
+            <mat-card-content>
+                Épaisseur du Jet
+                <mat-slider
+                    id="sprayJet-slider"
+                    thumbLabel
+                    tickInterval="1"
+                    min="10"
+                    max="50"
+                    (input)="changeFontSize($event)"
+                    (input)="spraySizeSlider = $event.value"
+                ></mat-slider>
+                {{ spraySizeSlider }}
+                <br />
+                Épaisseur des Gouttelettes
+                <mat-slider
+                    id="sprayGouttes-slider"
+                    thumbLabel
+                    tickInterval="1"
+                    min="1"
+                    max="7"
+                    (input)="changeDropletSize($event)"
+                    (input)="dropletSizeSlider = $event.value"
+                ></mat-slider>
+                {{ dropletSizeSlider }}
+                <br />
+                Vitesse d'émission
+                <mat-slider
+                    id="sprayEmission-slider"
+                    thumbLabel
+                    tickInterval="1"
+                    min="6"
+                    max="20"
+                    (input)="changeEmissionSpeed($event)"
+                    (input)="emissionSpeedSlider = $event.value"
+                ></mat-slider>
+                {{ emissionSpeedSlider }}
+                <br />
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

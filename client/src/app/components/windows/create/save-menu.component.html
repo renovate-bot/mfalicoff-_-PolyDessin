@@ -1,0 +1,8 @@
+<div id="saveBox" class="save-container" *ngIf="this.getIsNewDrawing()">
+    <div class="save-content">
+        <p>Vous avez un dessin en cours de création. Veuillez l'enregistrer pour ne pas le perdre.</p>
+        <button mat-stroked-button color="primary" id="saveBtn" (click)="saveDrawing()">Sauvegarder le dessin</button>
+        <button mat-stroked-button color="warn" id="discard" (click)="discardDrawing()">Ignorer les changements</button>
+        <button mat-stroked-button color="basic" id="cancelBtn" (click)="hideWindow()">Annuler</button>
+    </div>
+</div>

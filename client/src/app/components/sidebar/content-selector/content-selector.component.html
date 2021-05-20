@@ -1,0 +1,31 @@
+<div class="selector">
+    <div *ngIf="getIsSelector()">
+        <mat-card [class.mat-elevation-z8]="true">
+            <mat-card-header> Sélection </mat-card-header>
+            <mat-card-content>
+                <br />
+                <button
+                    mat-raised-button
+                    id="rectangle-selector-btn"
+                    (click)="selectSelectorRectangle()"
+                    matTooltip="Sélection par rectangle (R)"
+                    [class.selected]="getIsRectangleSelector()"
+                >
+                    <img class="rectangle-icon" src="assets/toolbar/select_all.png" style="width: 24px; height: 24px" />
+                </button>
+                <button
+                    mat-raised-button
+                    id="freehand-selector-btn"
+                    (click)="selectSelectorFreeHand()"
+                    matTooltip="Sélection par lasso polygonale (V)"
+                    [class.selected]="getIsFreeHandSelector()"
+                >
+                    <img class="rectangle-icon" src="assets/toolbar/lasso.svg" style="width: 24px; height: 24px" />
+                </button>
+            </mat-card-content>
+            <mat-card-content>
+                <button mat-raised-button id="selector-btn" (click)="selectAll()" matTooltip="Tout sélectionner (ctrl+A)">Tout sélectionner</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

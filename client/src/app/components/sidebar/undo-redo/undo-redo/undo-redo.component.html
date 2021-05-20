@@ -1,0 +1,8 @@
+<div id="buttonsRow">
+    <button mat-raised-button (click)="undo()" matTooltip="Annuler: Ctrl+Z" [disabled]="!enableUndo()">
+        <img class="line-icon" src="assets/toolbar/undo.svg" style="width: 24px; height: 24px" />
+    </button>
+    <button mat-raised-button (click)="redo()" matTooltip="Refaire: Ctrl+Shift+Z" [disabled]="!enableRedo()">
+        <img class="line-icon" src="assets/toolbar/redo.svg" style="width: 24px; height: 24px" />
+    </button>
+</div>

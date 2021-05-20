@@ -1,0 +1,21 @@
+<div class="eraser">
+    <div *ngIf="isEraserSelected()">
+        <mat-card [class.mat-elevation-z8]="true">
+            <mat-card-header> Efface </mat-card-header>
+            <mat-card-content>
+                Épaisseur
+                <mat-slider
+                    thumbLabel
+                    tickInterval="1"
+                    min="5"
+                    max="50"
+                    [(value)]="eraserSizeSlider"
+                    (input)="changeFontSize($event)"
+                    (input)="eraserSizeSlider = $event.value"
+                ></mat-slider>
+                {{ eraserSizeSlider }}
+                <br />
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

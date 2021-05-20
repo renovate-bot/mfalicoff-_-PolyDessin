@@ -1,0 +1,94 @@
+#container {
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 1px solid lightgrey;
+    display: flex;
+    height: -webkit-fill-available;
+}
+
+#galleryOverlay {
+    overflow: hidden;
+}
+
+.example-chip-list {
+    width: 50%;
+}
+
+.singleImage {
+    margin: 25px;
+    width: 33%;
+}
+
+#singleImageToDisplay {
+    margin-right: 34%;
+    margin-left: 30%;
+}
+
+.image {
+    border-radius: 5px 5px 0px 0px;
+    height: 50%;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+}
+
+.title {
+    text-align: center;
+    padding: 10px;
+    h3 {
+        width: 100%;
+        margin: 0px;
+    }
+}
+#allImagesContainer {
+    display: flex;
+}
+
+#Image {
+    margin: 5%;
+    width: 33%;
+}
+
+.doubleImages {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#doubleImageToDisplay {
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 1px solid lightgrey;
+    display: flex;
+    width: 100%;
+}
+
+.buttonImage {
+    width: 24px;
+}
+
+.deleteButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.deleteButtonSingle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tags {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#galleryOverlay {
+    width: 75vw;
+    height: 40vw;
+}

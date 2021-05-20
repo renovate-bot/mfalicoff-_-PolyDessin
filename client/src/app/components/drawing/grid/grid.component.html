@@ -1,0 +1,39 @@
+<div class="grid">
+    <div *ngIf="gridIsSelected">
+        <div>
+            <mat-card class="grid-container" [class.mat-elevation-z8]="true">
+                <mat-card-header> Grille </mat-card-header>
+                <mat-card-content>
+                    <mat-slide-toggle [(ngModel)]="gridService.gridIsVisible" (change)="gridService.applyGrid()">Activer la grille</mat-slide-toggle>
+                    <div *ngIf="gridService.gridIsVisible">
+                        <div>
+                            Opacité
+                            <mat-slider
+                                id="grid-opacity-slider"
+                                thumbLabel
+                                tickInterval="1"
+                                min="5"
+                                max="100"
+                                (input)="changeGridOpacity($event)"
+                                (input)="gridOpacitySlider = $event.value"
+                            ></mat-slider>
+                            {{ gridOpacitySlider }}%
+                        </div>
+                        Dimensions
+                        <mat-slider
+                            id="grid-dimension-slider"
+                            thumbLabel
+                            tickInterval="1"
+                            min="20"
+                            max="100"
+                            (input)="changeDimensionSlider($event)"
+                            (input)="gridService.squareDimension = $event.value"
+                            [value]="gridService.squareDimension"
+                        ></mat-slider>
+                        {{ gridService.squareDimension }}
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
